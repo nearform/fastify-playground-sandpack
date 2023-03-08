@@ -1,10 +1,21 @@
+# Logs
+logs
+*.log
+pnpm-debug.log*
+
 node_modules
+dist
+dist-ssr
+*.local
 .eslintcache
 
-# JetBrains IDEs
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
-# Visual Studio Code
-.vscode
-
-# OS X
 .DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

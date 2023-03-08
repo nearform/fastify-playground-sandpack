@@ -1,36 +1,50 @@
 {
-  "name": "hub-template",
+  "name": "fastify-playground-sandpack",
   "version": "1.0.0",
   "description": "Template to start a new repository on the hub",
-  "main": "index.js",
   "type": "module",
   "scripts": {
-    "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "tsc --noEmit && eslint --ext .js,.ts,.jsx,.tsx src",
+    "format": "npm run lint --fix & prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "preview": "npm run build && vite preview",
     "prepare": "husky install"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nearform/hub-template.git"
+    "url": "git+https://github.com/nearform/fastify-playground-sandpack.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Andy Smith <andy.smith@nearform.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nearform/hub-template/issues"
+    "url": "https://github.com/nearform/fastify-playground-sandpack/issues"
   },
-  "homepage": "https://github.com/nearform/hub-template#readme",
+  "homepage": "https://nearform.github.io/fastify-playground-sandpack",
+  "dependencies": {
+    "@codesandbox/sandpack-react": "^2.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "@vitejs/plugin-react-swc": "^3.2.0",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4"
   },
   "lint-staged": {
-    "*.{js,jsx}": "eslint --cache --fix"
+    "*.{js,ts,jsx,tsx}": "npm run format"
   }
 }

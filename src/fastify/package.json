@@ -1,0 +1,12 @@
+{
+  "name": "fastify-playground",
+  "main": "index.js",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "fastify": "4.13.0"
+  }
+}
