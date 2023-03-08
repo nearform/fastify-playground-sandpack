@@ -59,7 +59,7 @@ jobs:
 
   automerge:
     name: Merge dependabot's PRs
-    needs: test
+    needs: lint
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
