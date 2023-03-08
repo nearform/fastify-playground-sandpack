@@ -6,4 +6,6 @@ To add dependencies directly edit the `package.json` file. Under the hood Sandpa
 
 Sandpack currently provides no method to allow for the manual rebuilding of packages so removing packages will not work.
 
+Please note changes are not saved locally and refreshing the page will result in their loss.
+
 Read the blog post [here](#todo)

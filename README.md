@@ -4,7 +4,14 @@
 
 An interactive playground for running Fastify in the browser using Sandpack.
 
-[Example](https://nearform.github.io/fastify-playground-sandpack)
+Deployed to: https://nearform.github.io/fastify-playground-sandpack
+
+## Usage
+
+- By default when changing the contents of the `index.js` file the start script will be re-ran.
+- To add dependencies directly edit the `package.json` file. Under the hood Sandpack will automatically install the packages added.
+- Sandpack currently provides no method to allow for the manual rebuilding of packages so removing packages will not work.
+- Please note changes are not saved locally and refreshing the page will result in their loss.
 
 ## Blog post
 
