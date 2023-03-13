@@ -22,7 +22,7 @@
   },
   "homepage": "https://nearform.github.io/fastify-playground-sandpack",
   "dependencies": {
-    "@codesandbox/sandpack-react": "^2.1.2",
+    "@codesandbox/sandpack-react": "^2.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -34,7 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "@vitejs/plugin-react-swc": "^3.2.0",
-    "eslint": "^8.35.0",
+    "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",

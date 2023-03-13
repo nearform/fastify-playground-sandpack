@@ -7,8 +7,12 @@ import {
 import useSandpack from './useSandpack'
 
 export default function () {
-  const { activeFile, restartOnChange, restartShell, toggleRestartOnChange } =
-    useSandpack()
+  const {
+    activeFileIsReadme,
+    restartOnChange,
+    restartShell,
+    toggleRestartOnChange
+  } = useSandpack()
 
   return (
     <>
@@ -28,10 +32,10 @@ export default function () {
       <SandpackLayout>
         <SandpackCodeEditor
           closableTabs={false}
-          showInlineErrors
-          showLineNumbers={true}
-          showTabs
-          wrapContent={activeFile === '/README.md'}
+          showInlineErrors={true}
+          showLineNumbers={!activeFileIsReadme}
+          showTabs={true}
+          wrapContent={activeFileIsReadme}
         />
         <SandpackPreview showNavigator />
       </SandpackLayout>

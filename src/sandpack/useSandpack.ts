@@ -1,9 +1,18 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useSandpack } from '@codesandbox/sandpack-react'
+import { useSandpack as useSandpackReact } from '@codesandbox/sandpack-react'
 
-export default function () {
-  const { dispatch, listen, sandpack } = useSandpack()
+interface SandpackHook {
+  activeFileIsReadme: boolean
+  restartOnChange: boolean
+  restartShell: () => void
+  toggleRestartOnChange: () => void
+}
+
+export default function useSandpack(): SandpackHook {
+  const { dispatch, listen, sandpack } = useSandpackReact()
   const [restartOnChange, setRestartOnChange] = useState<boolean>(true)
+
+  const activeFileIsReadme = sandpack?.activeFile === '/README.md'
 
   const restartShell = useCallback(
     () => dispatch({ type: 'shell/restart' }),
@@ -12,26 +21,26 @@ export default function () {
 
   const toggleRestartOnChange = () => {
     if (!restartOnChange) restartShell()
-    setRestartOnChange(!restartOnChange)
+    setRestartOnChange(prev => !prev)
   }
 
   useEffect(() => {
-    const restart = listen(msg => {
-      if (
-        restartOnChange &&
-        msg?.type === 'fs/change' &&
-        msg?.path === '/index.js'
-      )
-        restartShell()
-    })
+    const handleMessage = (msg: any) => {
+      const indexHasChanged =
+        msg.type === 'fs/change' && msg.path === '/index.js'
+
+      if (restartOnChange && indexHasChanged) restartShell()
+    }
+
+    const unsubscribe = listen(handleMessage)
 
     return () => {
-      restart()
+      unsubscribe()
     }
   }, [listen, restartOnChange, restartShell])
 
   return {
-    activeFile: sandpack?.activeFile,
+    activeFileIsReadme,
     restartOnChange,
     restartShell,
     toggleRestartOnChange
