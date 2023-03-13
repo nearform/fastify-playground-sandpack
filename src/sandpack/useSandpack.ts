@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useSandpack as useSandpackReact } from '@codesandbox/sandpack-react'
+import type { SandpackMessage } from '@codesandbox/sandpack-client'
 
 interface SandpackHook {
   activeFileIsReadme: boolean
@@ -25,7 +26,7 @@ export default function useSandpack(): SandpackHook {
   }
 
   useEffect(() => {
-    const handleMessage = (msg: any) => {
+    const handleMessage = (msg: SandpackMessage) => {
       const indexHasChanged =
         msg.type === 'fs/change' && msg.path === '/index.js'
 
