@@ -22,7 +22,7 @@
   },
   "homepage": "https://nearform.github.io/fastify-playground-sandpack",
   "dependencies": {
-    "@codesandbox/sandpack-react": "^2.1.9",
+    "@codesandbox/sandpack-react": "^2.1.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
